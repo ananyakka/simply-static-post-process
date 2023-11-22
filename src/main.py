@@ -98,6 +98,7 @@ class StaticWordPressNetlify:
         """
         if config_:
             self.config = config_
+            self.temp_folder = Path(self.config["root"], self.config["temp_folder"])
             self.output_folder = Path(self.config["root"], self.config["output_folder"])
             self.zip_file_path = Path(self.config["root"], self.config["zip_file_name"])
             self.redirect_page = Path(
@@ -174,10 +175,13 @@ class StaticWordPressNetlify:
         if self.output_folder.is_dir():
             zf = ZipFile(self.zip_file_path, "r")
             helpers.log_to_console(zf.namelist())
-            member_name = "files/" + archive_name
-            member_name = member_name.replace(".zip", "", 1)
-            zf.extractall(self.output_folder, member_name)
+            zf.extractall(self.temp_folder)
             zf.close()
+            subdir = self.temp_folder + "files/" + archive_name
+            subdir = subdir.replace(".zip", "", 1)
+            files_list = os.listdir(subdir)
+            for files in files_list:
+                shutil.move(files, self.output_folder)
             helpers.log_to_console("INFO", "Zip File Extracted")
         else:
             helpers.log_to_console("ERROR", "Cannot extract Zip File")
