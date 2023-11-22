@@ -184,7 +184,7 @@ class StaticWordPressNetlify:
             subdir = subdir.replace(".zip", "", 1)
             files_list = os.listdir(subdir)
             for files in files_list:
-                shutil.move(files, self.output_folder)
+                shutil.move(os.path.join(subdir, files), self.output_folder)
             helpers.log_to_console("INFO", "Zip File Extracted")
         else:
             helpers.log_to_console("ERROR", "Cannot extract Zip File")
