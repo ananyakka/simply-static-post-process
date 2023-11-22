@@ -204,7 +204,7 @@ class StaticWordPressNetlify:
     def fix_home_page(self):
         """Fix Schemas and other links on home page which are ignored by simply static plugin."""
         home_page_path = Path(self.output_folder, "index.html")
-
+        helpers.log_to_console(home_page_path)
         with codecs.open(home_page_path, "r", "utf-8") as f:
             contents_home_page = f.read()
             contents_home_page = helpers.update_links(
