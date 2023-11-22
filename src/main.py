@@ -135,12 +135,12 @@ class StaticWordPressNetlify:
 
         current_session.cookies.clear()
 
-    def create_output_folder(self):
+    def create_folder(self, folder):
         """Create Ouput Folder it it doesnot exist."""
 
-        if not self.output_folder.is_dir():
-            self.output_folder.mkdir(parents=True, exist_ok=True)
-            helpers.log_to_console("INFO", "Output Folder Created")
+        if not self.folder.is_dir():
+            self.folder.mkdir(parents=True, exist_ok=True)
+            helpers.log_to_console("INFO", "Folder Created")
         else:
             helpers.log_to_console("ERROR", "Cannot Create Output Folder")
 
@@ -450,6 +450,7 @@ if __name__ == "__main__":
             "root": "",
             "callback_home": callback_home,
             "callback_deploy_url": callback_deploy_url,
+            "temp_folder": "temp"
             "output_folder": "output",
             "zip_url": wordpress_simply_static_zip_url,
             "zip_file_name": "wordpress-simply-static.zip",
@@ -469,7 +470,8 @@ if __name__ == "__main__":
 
         swpn = StaticWordPressNetlify(config_=configurations)
         swpn.download_zip_file()
-        swpn.create_output_folder()
+        swpn.create_folder(temp_folder)
+        swpn.create_folder(output_folder)
         swpn.extract_zip_file()
         swpn.fix_404_error_page()
         swpn.fix_home_page()
