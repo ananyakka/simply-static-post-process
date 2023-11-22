@@ -439,7 +439,7 @@ if __name__ == "__main__":
         page_search = "search"
 
         wordpress_simply_static_zip_url = (
-            callback_home + "/wp-content/plugins/simply-static/static-files/" + archive_name
+            callback_home + "/wp-content/uploads/" + archive_name
         )
 
         configurations = {
