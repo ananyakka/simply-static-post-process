@@ -470,8 +470,8 @@ if __name__ == "__main__":
 
         swpn = StaticWordPressNetlify(config_=configurations)
         swpn.download_zip_file()
-        swpn.create_folder(self.config["temp_folder"])
-        swpn.create_folder(self.config["output_folder"])
+        swpn.create_folder(configurations["temp_folder"])
+        swpn.create_folder(configurations["output_folder"])
         swpn.extract_zip_file()
         swpn.fix_404_error_page()
         swpn.fix_home_page()
