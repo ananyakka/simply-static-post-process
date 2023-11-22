@@ -205,8 +205,7 @@ class StaticWordPressNetlify:
         """Fix Schemas and other links on home page which are ignored by simply static plugin."""
         home_page_path = Path(self.output_folder, "index.html")
 
-        try:
-            with codecs.open(home_page_path, "r", "utf-8") as f:
+        with codecs.open(home_page_path, "r", "utf-8") as f:
                 contents_home_page = f.read()
                 contents_home_page = helpers.update_links(
                     contents_home_page,
@@ -217,9 +216,6 @@ class StaticWordPressNetlify:
                 with open(home_page_path, "w", encoding="utf-8") as f:
                     f.write(contents_home_page)
             helpers.log_to_console("INFO", "Fixed Home Page")
-
-        except:
-            helpers.log_to_console("ERROR", "Home Page can not be fixed")
 
     def build_search_index(self):
         """Buidl search index by using title, body content and href of a given page"""
