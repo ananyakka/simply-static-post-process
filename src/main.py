@@ -138,8 +138,8 @@ class StaticWordPressNetlify:
     def create_folder(self, folder):
         """Create Ouput Folder it it doesnot exist."""
 
-        if not self.folder.is_dir():
-            self.folder.mkdir(parents=True, exist_ok=True)
+        if not folder.is_dir():
+            folder.mkdir(parents=True, exist_ok=True)
             helpers.log_to_console("INFO", "Folder Created")
         else:
             helpers.log_to_console("ERROR", "Cannot Create Output Folder")
