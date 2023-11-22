@@ -173,7 +173,7 @@ class StaticWordPressNetlify:
         """Extract simply static zip file to ouput folder."""
         if self.output_folder.is_dir():
             zf = ZipFile(self.zip_file_path, "r")
-            member_name = "/files/" + archive_name
+            member_name = "files/" + archive_name
             member_name = member_name.replace(".zip", "", 1)
             zf.extract(member_name, self.output_folder)
             zf.close()
