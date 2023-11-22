@@ -450,7 +450,7 @@ if __name__ == "__main__":
             "root": "",
             "callback_home": callback_home,
             "callback_deploy_url": callback_deploy_url,
-            "temp_folder": "temp"
+            "temp_folder": "temp",
             "output_folder": "output",
             "zip_url": wordpress_simply_static_zip_url,
             "zip_file_name": "wordpress-simply-static.zip",
