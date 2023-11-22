@@ -180,7 +180,7 @@ class StaticWordPressNetlify:
             helpers.log_to_console(zf.namelist())
             zf.extractall(self.temp_folder)
             zf.close()
-            subdir = str(self.temp_folder) + "files/" + archive_name
+            subdir = str(self.temp_folder) + "/files/" + archive_name
             subdir = subdir.replace(".zip", "", 1)
             files_list = os.listdir(subdir)
             for files in files_list:
