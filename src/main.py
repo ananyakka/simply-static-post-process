@@ -83,6 +83,7 @@ class StaticWordPressNetlify:
 
     Attributes:
         config (dic): Contains all important configurations about the class.
+        temp_folder (Path): Contains Path to temp output folder for extracted files
         output_folder (Path): Contains Path for output folder location in Netlify
         zip_file_path (Path): ZIP File Path to download simply-static-zip file freom remote server.
         redirect_page (Path): Contains Path of redirect page
